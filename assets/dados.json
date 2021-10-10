@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "title": "Bhrama lata 350ml 1",
+        "price": 17.50,
+        "imagePath": "beer 1.jpg",
+        "category": "Refrigerante",
+        "description": "Brahma geladinha que da agua na boca"
+    },
+    {
+        "id": 2,
+        "title": "Bhrama lata 350ml 2",
+        "price": 17.50,
+        "imagePath": "beer 1.jpg",
+        "category": "Refrigerante",
+        "description": "Brahma geladinha que da agua na boca"
+    },
+    {
+        "id": 3,
+        "title": "Bhrama lata 350ml 3",
+        "price": 17.50,
+        "imagePath": "beer 1.jpg",
+        "category": "Refrigerante",
+        "description": "Brahma geladinha que da agua na boca"
+    },
+    {
+        "id": 4,
+        "title": "Bhrama lata 350ml 4",
+        "price": 17.50,
+        "imagePath": "beer 1.jpg",
+        "category": "Refrigerante",
+        "description": "Brahma geladinha que da agua na boca"
+    },
+    {
+        "id": 5,
+        "title": "Bhrama lata 350ml 5",
+        "price": 17.50,
+        "imagePath": "beer 1.jpg",
+        "category": "Refrigerante",
+        "description": "Brahma geladinha que da agua na boca"
+    }
+]
