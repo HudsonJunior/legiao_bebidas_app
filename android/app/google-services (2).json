@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "823816775914",
+    "project_id": "legiao-bebidas",
+    "storage_bucket": "legiao-bebidas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:823816775914:android:b457a393a1d6fbd2710f93",
+        "android_client_info": {
+          "package_name": "com.legiaobebidas.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "823816775914-5kaqr8g7u3rct5dm095gkp7ln38kc7sa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASCQHiq4gu1XJvDld2-5QZNMfpUmcZR_c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "823816775914-5kaqr8g7u3rct5dm095gkp7ln38kc7sa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
