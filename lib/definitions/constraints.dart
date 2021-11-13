@@ -54,4 +54,6 @@ class Constraints {
   // BORDERS
   static const double borderSmall = 1.0;
   static const double borderNormal = 2.0;
+
+  static const String whatsappNumber = '43 996736516';
 }

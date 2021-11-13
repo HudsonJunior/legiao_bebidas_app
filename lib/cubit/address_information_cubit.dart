@@ -87,7 +87,7 @@ class AddressInformationCubit extends Cubit<AddressModelState> {
         emit(
           state.copyWith(
             street: data.street,
-            complement: data.street,
+            complement: data.complement,
             number: data.number,
           ),
         );

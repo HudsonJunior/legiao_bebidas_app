@@ -1,42 +1,118 @@
 [
     {
         "id": 1,
-        "title": "Bhrama lata 350ml 1",
-        "price": 17.50,
-        "imagePath": "beer 1.jpg",
-        "category": "Refrigerante",
-        "description": "Brahma geladinha que da agua na boca"
+        "title": "Caixa ambev para garrafas 300ml",
+        "price": 49.90,
+        "imagePath": "Caixa ambev p garrafas 300 ml 49,90.jpg",
+        "category": "Acessórios",
+        "description": "Caixa ambev para colocar garrafas de 300 ml"
     },
     {
         "id": 2,
-        "title": "Bhrama lata 350ml 2",
-        "price": 17.50,
-        "imagePath": "beer 1.jpg",
-        "category": "Refrigerante",
-        "description": "Brahma geladinha que da agua na boca"
+        "title": "Controlador de calor Kaloud Lotus",
+        "price": 35.0,
+        "imagePath": "Controlador de calor Kaloud Lotus 35,00.jpg",
+        "category": "Acessórios",
+        "description": "Controlador de calor Kaloud Lotus por apenas 35 reais"
     },
     {
         "id": 3,
-        "title": "Bhrama lata 350ml 3",
-        "price": 17.50,
-        "imagePath": "beer 1.jpg",
-        "category": "Refrigerante",
-        "description": "Brahma geladinha que da agua na boca"
+        "title": "Piteiras higiênica joy",
+        "price": 0.0,
+        "imagePath": "Piteira higienica joy.webp",
+        "category": "Acessórios",
+        "description": "Piteiras higiênica joy"
     },
     {
         "id": 4,
-        "title": "Bhrama lata 350ml 4",
-        "price": 17.50,
-        "imagePath": "beer 1.jpg",
-        "category": "Refrigerante",
-        "description": "Brahma geladinha que da agua na boca"
+        "title": "Rosh seven premiun dourado",
+        "price": 60.00,
+        "imagePath": "Rosh seven premin dourado 60,00.png",
+        "category": "Acessórios",
+        "description": "Rosh seven premiun dourado"
     },
     {
         "id": 5,
-        "title": "Bhrama lata 350ml 5",
-        "price": 17.50,
-        "imagePath": "beer 1.jpg",
+        "title": "Rosh seven premiun roxo",
+        "price": 60.00,
+        "imagePath": "Rosh seven premiun roxo 60,00.png",
+        "category": "Acessórios",
+        "description": "Rosh seven premiun roxo"
+    },
+    {
+        "id": 6,
+        "title": "Rosh seven preto",
+        "price": 50.00,
+        "imagePath": "Rosh seven Preto 50,00.jpg",
+        "category": "Acessórios",
+        "description": "Rosh seven preto"
+    },
+    {
+        "id": 7,
+        "title": "Vaso Md aladin azul",
+        "price": 100.00,
+        "imagePath": "Vaso Md aladin azul 100,00.jpg",
+        "category": "Acessórios",
+        "description": "Vaso Md aladin azul"
+    },
+    {
+        "id": 8,
+        "title": "Adalya Don (Sabor Pitaya)",
+        "price": 15.00,
+        "imagePath": "Adalya Don ( Sabor Pitaya).webp",
+        "category": "Essencias",
+        "description": "Adalya Don (Sabor Pitaya)"
+    },
+    {
+        "id": 9,
+        "title": "Hawaii (mix de frutas amarelas)",
+        "price": 15.00,
+        "imagePath": "Hawaii (mix de frutas amarelas).jpg",
+        "category": "Essencias",
+        "description": "Hawaii (mix de frutas amarelas)"
+    },
+    {
+        "id": 10,
+        "title": "Brahma 350 ml",
+        "price": 3.50,
+        "imagePath": "Brahma 350 ml 3,50.webp",
+        "category": "Cerveja",
+        "description": "Brahma 350 ml 3,50"
+    }
+    ,{
+        "id": 11,
+        "title": "Brahma 350 ml caixa com 12",
+        "price": 39.00,
+        "imagePath": "Brahma 350 ml caixa com 12 39,00.jpg",
+        "category": "Cerveja",
+        "description": "Brahma 350 ml caixa com 12 39,00"
+    },{
+        "id": 12,
+        "title": "Caixa Brahma duplo malte 350 ml",
+        "price": 44.00,
+        "imagePath": "Caixa Brahma duplo malte 350 ml 44,00.jpg",
+        "category": "Cerveja",
+        "description": "Caixa Brahma duplo malte 350 ml 44,00"
+    },{
+        "id": 13,
+        "title": "Caixa de skol 350 ml",
+        "price": 38.00,
+        "imagePath": "caixo de skol 350 ml 38,00.png",
+        "category": "Cerveja",
+        "description": "caixo de skol 350 ml 38,00"
+    },{
+        "id": 14,
+        "title": "Coca 2 litros",
+        "price": 10.00,
+        "imagePath": "Coca 2 litros 10,00.jpg",
         "category": "Refrigerante",
-        "description": "Brahma geladinha que da agua na boca"
+        "description": "Coca 2 litros 10,00"
+    },{
+        "id": 15,
+        "title": "Conhaque presidente",
+        "price": 13.00,
+        "imagePath": "Conhaque presidente 13,00.jpg",
+        "category": "Destilado",
+        "description": "Conhaque presidente 13,00.jpg"
     }
 ]

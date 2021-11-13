@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:legiao_bebidas_app/definitions/colors.dart';
+import 'package:legiao_bebidas_app/definitions/constraints.dart';
 import 'package:legiao_bebidas_app/widgets/logo.dart';
 import 'package:legiao_bebidas_app/definitions/extension.dart';
 
@@ -19,17 +20,14 @@ class AddressScreen extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  'Atendimento em Marilândia do Sul',
+                  'Atendimento somente em\n Marilândia do Sul',
                   style: context.textTheme.headline6!
                       .copyWith(color: Colors.white),
+                  textAlign: TextAlign.center,
                 ),
+                const SizedBox(height: 12),
                 Text(
-                  'Rua 123 123 123',
-                  style: context.textTheme.headline6!
-                      .copyWith(color: Colors.white),
-                ),
-                Text(
-                  'Perto do estabelicemento abc',
+                  'Rua São Sebastião, 770',
                   style: context.textTheme.headline6!
                       .copyWith(color: Colors.white),
                 ),
@@ -40,7 +38,7 @@ class AddressScreen extends StatelessWidget {
                     Icon(FontAwesomeIcons.whatsapp, color: Colors.green),
                     const SizedBox(width: 16.0),
                     Text(
-                      '43 99010203',
+                      Constraints.whatsappNumber,
                       style: context.textTheme.headline6!
                           .copyWith(color: Colors.white),
                     ),

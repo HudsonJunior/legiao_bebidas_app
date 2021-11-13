@@ -27,7 +27,7 @@ class _ProductItemState extends State<ProductItem> {
   @override
   void initState() {
     super.initState();
-    productsCubit = BlocProvider.of<ProductsCubit>(context)..load();
+    productsCubit = BlocProvider.of<ProductsCubit>(context);
     currentQuantityCubit = BlocProvider.of<CurrentQuantityCubit>(context);
   }
 

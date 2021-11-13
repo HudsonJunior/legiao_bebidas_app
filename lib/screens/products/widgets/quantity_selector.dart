@@ -19,7 +19,6 @@ class QuantitySelector extends StatefulWidget {
 }
 
 class QuantitySelectorState extends State<QuantitySelector> {
-  int selectedValue = 0;
   int minValue = 0;
   int maxValue = 50;
 
@@ -39,12 +38,9 @@ class QuantitySelectorState extends State<QuantitySelector> {
             child: QuantityIcon(
               icon: Icons.remove,
               onTap: () {
-                if (selectedValue > minValue) {
-                  setState(() {
-                    selectedValue--;
-                  });
-                  cartCubit.updateTotalQuantity(isIncrementing: false);
-                  cartCubit.decrementProduct(widget.product, selectedValue);
+                if (widget.product.quantity > minValue) {
+                  BlocProvider.of<ProductsCubit>(context)
+                      .decrementProduct(widget.product.id);
                 }
               },
             ),
@@ -55,7 +51,7 @@ class QuantitySelectorState extends State<QuantitySelector> {
               maxValue: 50,
               itemCount: 1,
               axis: Axis.horizontal,
-              value: selectedValue,
+              value: widget.product.quantity,
               selectedTextStyle: TextStyle(
                 color: Palette.primary,
                 fontSize: 26.0,
@@ -65,21 +61,18 @@ class QuantitySelectorState extends State<QuantitySelector> {
               ),
               itemWidth: 30,
               onChanged: (newValue) {
-                setState(() {
-                  selectedValue = newValue;
-                });
+                // setState(() {
+                //   selectedValue = newValue;
+                // });
               }),
           const SizedBox(width: 8.0),
           Flexible(
             child: QuantityIcon(
               icon: Icons.add,
               onTap: () {
-                if (selectedValue < maxValue) {
-                  setState(() {
-                    selectedValue++;
-                  });
-                  cartCubit.updateTotalQuantity(isIncrementing: true);
-                  cartCubit.addProduct(widget.product, selectedValue);
+                if (widget.product.quantity < maxValue) {
+                  BlocProvider.of<ProductsCubit>(context)
+                      .addProduct(widget.product.id);
                 }
               },
             ),

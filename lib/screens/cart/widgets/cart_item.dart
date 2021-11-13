@@ -43,7 +43,7 @@ class CartItem extends StatelessWidget {
           const SizedBox(width: 24.0),
           Expanded(
             child: Text(
-              '$product\nR\$ ${price.toStringAsFixed(2)}',
+              '$product\nR\$ ${(price * quantity).toStringAsFixed(2)}',
               maxLines: 3,
               overflow: TextOverflow.ellipsis,
               style: context.textTheme.bodyText2,

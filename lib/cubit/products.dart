@@ -1,9 +1,7 @@
 import 'dart:convert';
-
 import 'package:equatable/equatable.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:legiao_bebidas_app/models/category.dart';
 
 class ProductData extends Equatable {
@@ -13,6 +11,7 @@ class ProductData extends Equatable {
   final String imagePath;
   final CategoryEnum category;
   final String description;
+  final int quantity;
 
   ProductData({
     required this.id,
@@ -21,6 +20,7 @@ class ProductData extends Equatable {
     required this.imagePath,
     required this.category,
     required this.description,
+    this.quantity = 0,
   });
 
   factory ProductData.fromJson(Map<String, dynamic> json) => ProductData(
@@ -32,41 +32,66 @@ class ProductData extends Equatable {
         id: json['id'],
       );
 
-  String get text => '$title - R\$ ${price.toStringAsFixed(2)}';
+  String get text => '$title - R\$ ${(price * quantity).toStringAsFixed(2)}';
+
   @override
   List<Object?> get props => [id, title, price, category];
+
+  ProductData copyWith({
+    int? id,
+    String? title,
+    double? price,
+    String? imagePath,
+    CategoryEnum? category,
+    String? description,
+    int? quantity,
+  }) {
+    return ProductData(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      price: price ?? this.price,
+      imagePath: imagePath ?? this.imagePath,
+      category: category ?? this.category,
+      description: description ?? this.description,
+      quantity: quantity ?? this.quantity,
+    );
+  }
 }
 
 class ProductState {
-  List<ProductData> products;
-  List<ProductData> currentProducts;
+  Map<int, ProductData> products;
   ProductData? selectedProduct;
   bool isLoading;
+  CategoryEnum currentCategory;
+
+  Iterable<ProductData> get cartProducts => products.values;
+
+  int get totalQuantity => products.values
+      .fold(0, (previousValue, product) => previousValue + product.quantity);
 
   ProductState({
     required this.products,
-    required this.currentProducts,
     this.isLoading = false,
     this.selectedProduct,
+    this.currentCategory = CategoryEnum.todos,
   });
 
   bool get hasAnyProductSelected => selectedProduct != null;
 
   ProductState copyWith({
-    List<ProductData>? products,
-    List<ProductData>? currentProducts,
+    Map<int, ProductData>? products,
     bool isLoading = false,
     ProductData? selectedProduct,
+    CategoryEnum? currentCategory,
   }) =>
       ProductState(
         products: products ?? this.products,
         isLoading: isLoading,
         selectedProduct: selectedProduct ?? this.selectedProduct,
-        currentProducts: currentProducts ?? this.currentProducts,
+        currentCategory: currentCategory ?? this.currentCategory,
       );
 
-  factory ProductState.empty() =>
-      ProductState(products: [], currentProducts: []);
+  factory ProductState.empty() => ProductState(products: {});
 }
 
 class ProductsCubit extends Cubit<ProductState> {
@@ -76,15 +101,17 @@ class ProductsCubit extends Cubit<ProductState> {
     emit(state.copyWith(isLoading: true));
     try {
       final String data = await rootBundle.loadString('assets/dados.json');
-      final dataConverted = await json.decode(data);
-      final List<ProductData> products = dataConverted != null
-          ? dataConverted
-              .map<ProductData>((produto) => ProductData.fromJson(produto))
-              .toList()
-          : [];
-      emit(state.copyWith(products: products, currentProducts: products));
+      final dataConverted = await json.decode(data) as List<dynamic>?;
+
+      final products = <int, ProductData>{};
+
+      dataConverted?.forEach((product) {
+        products[product['id']] = ProductData.fromJson(product);
+      });
+
+      emit(state.copyWith(products: products));
     } catch (error) {
-      emit(state.copyWith(products: [], currentProducts: []));
+      emit(state.copyWith(products: {}));
     }
   }
 
@@ -92,17 +119,35 @@ class ProductsCubit extends Cubit<ProductState> {
     emit(state.copyWith(selectedProduct: product));
   }
 
-  void refreshList(CategoryEnum category) async {
-    emit(state.copyWith(isLoading: true));
+  void addProduct(int id) {
+    final newProducts = Map<int, ProductData>.from(
+      state.products
+        ..update(
+          id,
+          (oldProduct) =>
+              oldProduct.copyWith(quantity: oldProduct.quantity + 1),
+        ),
+    );
 
-    if (category == CategoryEnum.todos) {
-      emit(state.copyWith(currentProducts: state.products));
-    } else {
-      final filteredProducts = List<ProductData>.from(state.products)
-          .where((product) => product.category == category)
-          .toList();
+    emit(state.copyWith(products: newProducts));
+  }
 
-      emit(state.copyWith(currentProducts: filteredProducts));
+  void decrementProduct(int id) {
+    if (state.products[id]?.quantity != 0) {
+      final newProducts = Map<int, ProductData>.from(
+        state.products
+          ..update(
+            id,
+            (oldProduct) =>
+                oldProduct.copyWith(quantity: oldProduct.quantity - 1),
+          ),
+      );
+
+      emit(state.copyWith(products: newProducts));
     }
+  }
+
+  void selectCategory(CategoryEnum category) {
+    emit(state.copyWith(currentCategory: category));
   }
 }

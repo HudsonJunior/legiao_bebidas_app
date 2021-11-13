@@ -11,6 +11,7 @@ class DropdownPayment extends StatelessWidget {
   @override
   Widget build(BuildContext context) => BlocBuilder<CartCubit, CartState>(
         builder: (context, state) => DropdownButton<PaymentFormEnum>(
+          onTap: () => FocusScope.of(context).unfocus(),
           onChanged: (newPayment) {
             newPayment ??= PaymentFormEnum.money;
             BlocProvider.of<CartCubit>(context).updatePayment(newPayment);

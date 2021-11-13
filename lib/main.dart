@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
           )
         ],
         child: MaterialApp(
-          title: 'Flutter Demo',
+          title: 'Legião das Bebidas',
           theme: AppStyle.theme,
           debugShowCheckedModeBanner: false,
           home: InitialScreen(),

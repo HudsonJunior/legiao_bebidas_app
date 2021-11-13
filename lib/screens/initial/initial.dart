@@ -65,7 +65,7 @@ class _InitialScreenState extends State<InitialScreen> {
                         textAlign: TextAlign.center,
                       ),
                       RotateAnimatedText(
-                        'VINHO',
+                        'Destilados',
                         textAlign: TextAlign.center,
                       ),
                       RotateAnimatedText(
@@ -73,7 +73,19 @@ class _InitialScreenState extends State<InitialScreen> {
                         textAlign: TextAlign.center,
                       ),
                       RotateAnimatedText(
-                        'CIGARROS',
+                        'Essências',
+                        textAlign: TextAlign.center,
+                      ),
+                      RotateAnimatedText(
+                        'Carvão',
+                        textAlign: TextAlign.center,
+                      ),
+                      RotateAnimatedText(
+                        'Acessórios',
+                        textAlign: TextAlign.center,
+                      ),
+                      RotateAnimatedText(
+                        'Outros',
                         textAlign: TextAlign.center,
                       ),
                     ],

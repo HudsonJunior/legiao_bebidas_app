@@ -37,7 +37,7 @@ class _AppBarCategoryState extends State<AppBarCategory> {
             listenWhen: (previous, current) =>
                 previous.currentCategory != current.currentCategory,
             listener: (context, state) =>
-                productsCubit.refreshList(state.currentCategory),
+                productsCubit.selectCategory(state.currentCategory),
             builder: (context, state) => ListView.builder(
               itemBuilder: (context, index) {
                 final category = CategoryEnum.values[index];

@@ -5,6 +5,7 @@ import 'package:legiao_bebidas_app/cubit/address_information_cubit.dart';
 import 'package:legiao_bebidas_app/cubit/products.dart';
 import 'package:legiao_bebidas_app/definitions/colors.dart';
 import 'package:legiao_bebidas_app/definitions/extension.dart';
+import 'package:legiao_bebidas_app/models/category.dart';
 import 'package:legiao_bebidas_app/screens/products/widgets/appbar_category.dart';
 import 'package:legiao_bebidas_app/screens/products/widgets/product_item.dart';
 
@@ -47,12 +48,17 @@ class _ProductsScreenState extends State<ProductsScreen> {
               );
             }
 
+            final products = state.currentCategory == CategoryEnum.todos
+                ? state.products.values
+                : state.products.values.where(
+                    (product) => product.category == state.currentCategory);
+
             return Container(
               color: Palette.lightBlack,
               child: CustomScrollView(
                 slivers: [
                   const AppBarCategory(),
-                  if (state.currentProducts.isEmpty)
+                  if (products.isEmpty)
                     SliverToBoxAdapter(
                       child: Align(
                         alignment: Alignment.center,
@@ -74,12 +80,11 @@ class _ProductsScreenState extends State<ProductsScreen> {
                       ),
                       delegate: SliverChildBuilderDelegate(
                         (context, index) {
-                          final product =
-                              state.currentProducts.elementAt(index);
+                          final product = products.elementAt(index);
 
                           return ProductItem(product: product);
                         },
-                        childCount: state.currentProducts.length,
+                        childCount: products.length,
                       ),
                     ),
                   ),

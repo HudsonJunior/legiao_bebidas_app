@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:legiao_bebidas_app/definitions/constraints.dart';
 import 'package:legiao_bebidas_app/models/payment.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:whatsapp_unilink/whatsapp_unilink.dart';
@@ -44,9 +45,9 @@ class WhatsAppCubit extends Cubit<WhatsAppState> {
           : 'Entregar no seguinte endereço:\n$address';
 
       final link = WhatsAppUnilink(
-        phoneNumber: '+55 44 997215496',
+        phoneNumber: '+55 ${Constraints.whatsappNumber}',
         text:
-            "Olá, tudo bem? 😁\nGostaria de comprar os seguintes produtos:\n$items\nNo valor total de R\$ ${total.toStringAsFixed(2)}\n\n$addressText\n\nPretendo pagar com: ${payment.value}",
+            "Olá, tudo bem? 😁\n\nGostaria de comprar os seguintes produtos:\n\n$items\n\nNo valor total de R\$ ${total.toStringAsFixed(2)}\n\n$addressText\n\nPretendo pagar com: ${payment.value}",
       );
       await launch('$link');
       emit(state.copyWith(success: true));

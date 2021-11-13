@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:legiao_bebidas_app/definitions/colors.dart';
 import 'package:legiao_bebidas_app/definitions/extension.dart';
 import 'package:legiao_bebidas_app/screens/cart/widgets/address/address_field.dart';
 import 'package:legiao_bebidas_app/widgets/checkbox.dart';

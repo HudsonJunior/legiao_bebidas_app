@@ -4,7 +4,9 @@ enum CategoryEnum {
   essencias,
   destilado,
   refrigerante,
-  combo,
+  carvao,
+  acessorios,
+  outros,
 }
 
 extension CategoryOperations on CategoryEnum {
@@ -20,8 +22,12 @@ extension CategoryOperations on CategoryEnum {
         return 'Destilado';
       case CategoryEnum.refrigerante:
         return 'Refrigerante';
-      case CategoryEnum.combo:
-        return 'Combo';
+      case CategoryEnum.carvao:
+        return 'Carvão';
+      case CategoryEnum.acessorios:
+        return 'Acessórios';
+      case CategoryEnum.outros:
+        return 'Outros';
     }
   }
 }
@@ -39,8 +45,12 @@ extension StringOperations on String {
         return CategoryEnum.destilado;
       case 'Refrigerante':
         return CategoryEnum.refrigerante;
-      case 'Combo':
-        return CategoryEnum.combo;
+      case 'Carvão':
+        return CategoryEnum.carvao;
+      case 'Acessórios':
+        return CategoryEnum.acessorios;
+      case 'Outros':
+        return CategoryEnum.outros;
       default:
         return CategoryEnum.todos;
     }

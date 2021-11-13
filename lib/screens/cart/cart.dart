@@ -86,14 +86,15 @@ class _CartScreenState extends State<CartScreen> {
         addressInformationCubit.removeFromStorage();
       }
     }
-
-    BlocProvider.of<WhatsAppCubit>(context).sendMessage(
-      address: formattedAddress,
-      items: cartCubit.state.productsText,
-      total: cartCubit.state.totalPrice,
-      payment: cartCubit.state.payment,
-      isDelivered: shouldDeliveryToAddress,
-    );
+    if ((shouldDeliveryToAddress && isValid) || !shouldDeliveryToAddress) {
+      BlocProvider.of<WhatsAppCubit>(context).sendMessage(
+        address: formattedAddress,
+        items: cartCubit.state.productsText,
+        total: cartCubit.state.totalPrice,
+        payment: cartCubit.state.payment,
+        isDelivered: shouldDeliveryToAddress,
+      );
+    }
   }
 
   @override
@@ -143,14 +144,14 @@ class _CartScreenState extends State<CartScreen> {
                         SliverList(
                           delegate: SliverChildBuilderDelegate(
                             (context, index) {
-                              final item = state.products[index];
+                              final item = state.products.elementAt(index);
                               return Padding(
                                 padding:
                                     const EdgeInsets.symmetric(vertical: 8.0),
                                 child: CartItem(
-                                  imagePath: item.product.imagePath,
-                                  product: item.product.title,
-                                  price: item.product.price,
+                                  imagePath: item.imagePath,
+                                  product: item.title,
+                                  price: item.price,
                                   quantity: item.quantity,
                                 ),
                               );
@@ -243,7 +244,7 @@ class _CartScreenState extends State<CartScreen> {
                                     child: state.isLoading
                                         ? CircularProgressIndicator()
                                         : Text(
-                                            'Enviar pedido',
+                                            'Enviar pedido no WhatsApp',
                                           ),
                                   ),
                                 ),
