@@ -53,10 +53,10 @@ class AppStyle {
     brightness: Brightness.light,
     backgroundColor: Palette.dark,
     primaryColor: Palette.primary,
-    accentColor: Colors.white,
     hintColor: Palette.lightBlack,
     textTheme: _textTheme,
     fontFamily: 'Made Tommy',
     bottomSheetTheme: BottomSheetThemeData(backgroundColor: Colors.transparent),
+    colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.white),
   );
 }
