@@ -1,16 +1,9 @@
-# legiao_bebidas_app
+# Legião Bebidas App
 
-A new Flutter project.
+This is a Flutter application developed for the client, **Legião das Bebidas**. The app provides a user-friendly interface for browsing and purchasing beverages, catering to the needs of Legião’s customers.
 
-## Getting Started
+## Overview
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **Purpose**: A dedicated client app for Legião das Bebidas, making it easy for users to view products and complete purchases.
+- **Features**: Browse available beverages, access product details, and complete orders.
+- **Built With**: Flutter, providing cross-platform support.
